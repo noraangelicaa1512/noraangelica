@@ -69,6 +69,7 @@
   </div>
 </nav>
 <body>
+<form action="submit_pemesanan.php" method="POST">
     <h2>Formulir Anggota Perpustakaan Program Studi</h2>
         <form>
             <table>
