@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pameran Buku</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+/* Gaya dasar untuk layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+header {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 20px;
+}
+
+.book-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.book-item:hover {
+    transform: scale(1.05);
+}
+
+.book-item img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">UNJA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                  <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="pameran buku.html">pameran buku</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    
+                            Layanan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Formulir Perpanjangan Peminjaman Buku.html">Formulir Perpanjangan Peminjaman Buku</a></li>
+                            <li><a class="dropdown-item" href="Formulir Pemesanan Buku.html">Formulir Pemesanan Buku</a></li>
+                            <li><a class="dropdown-item" href="Formulir Anggota Perpustakaan.html">Formulir Anggota Perpustakaan</a></li>
+                            <li><a class="dropdown-item" href="Pengertian HTML dan CSS.html">Pengertian HTML dan CSS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header>
+        <h1>Pameran Buku 2024</h1>
+        <p>Selamat datang di pameran buku virtual!</p>
+    </header>
+
+    <main>
+        <section class="book-gallery">
+            <!-- Setiap buku ditampilkan dalam sebuah div dengan kelas "book-item" -->
+            <div class="book-item" onclick="openModal('book1')">
+                <img src="https://cdn.gramedia.com/uploads/items/9786020332956_Bumi-New-Cover.jpg" alt="Book 1">
+                <h2>BUMI</h2>
+                <p>Penulis: Tere liye</p>
+            </div>
+            <div class="book-item" onclick="openModal('book2')">
+                <img src="https://www.gramedia.com/blog/content/images/2021/08/9786020638560_Sang_Keris_C_1_4-1.jpg" alt="Book 2">
+                <h2>Sang Keris</h2>
+                <p>Penulis: Panji Sukma</p>
+            </div>
+            <div class="book-item" onclick="openModal('book2')">
+                <img src="https://lh4.googleusercontent.com/proxy/CK6aFQuIRwNkvqdp10lA622GrXrhxmbKDCfllGceMQrJFBZeawkP_GVz58LG8rV9BbL6qCb3DrW966TTVJdtgXAfKQtPVo6ZgvcpKUCwN2rHg1M" alt="Book 2">
+                <h2>Antasari</h2>
+                <p>Penulis: Heltus Sjamsuddin</p>
+            </div>
+            <!-- Tambahkan buku lainnya di sini -->
+        </section>
+    </main>
+
+    <!-- Modal untuk menampilkan detail buku -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Judul Buku</h2>
+            <p id="modalAuthor">Penulis: Nama Penulis</p>
+            <p id="modalDescription">Deskripsi buku...</p>
+        </div>
+    </div>
+<script>
+// Fungsi untuk membuka modal dan menampilkan detail buku
+function openModal(bookId) {
+    const modal = document.getElementById('bookModal');
+    const title = document.getElementById('modalTitle');
+    const author = document.getElementById('modalAuthor');
+    const description = document.getElementById('modalDescription');
+
+    // Set data buku berdasarkan ID
+    if (bookId === 'book1') {
+        title.textContent = 'Judul Buku 1';
+        author.textContent = 'Penulis: Penulis 1';
+        description.textContent = 'Ini adalah deskripsi untuk Buku 1.';
+    } else if (bookId === 'book2') {
+        title.textContent = 'Judul Buku 2';
+        author.textContent = 'Penulis: Penulis 2';
+        description.textContent = 'Ini adalah deskripsi untuk Buku 2.';
+    }
+    // Tambahkan detail buku lainnya sesuai kebutuhan
+
+    modal.style.display = 'flex';
+}
+
+// Fungsi untuk menutup modal
+function closeModal() {
+    document.getElementById('bookModal').style.display = 'none';
+}
+
+// Menutup modal jika user mengklik di luar konten modal
+window.onclick = function(event) {
+    const modal = document.getElementById('bookModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+</script>
+    <script src="script.js"></script>
+</body>
+</html>
 
