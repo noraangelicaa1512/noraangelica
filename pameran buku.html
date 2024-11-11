@@ -22,71 +22,82 @@ header {
     padding: 20px;
 }
 
-.book-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
+        h1, h2, p {
+            text-align: center;
+        }
 
-.book-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    width: 150px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
+        .slider-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
 
-.book-item:hover {
-    transform: scale(1.05);
-}
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
 
-.book-item img {
-    max-width: 100%;
-    border-radius: 5px;
-}
+        .book {
+            min-width: 20%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 0 10px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
 
-.modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 500px;
-    text-align: left;
-}
+        .prev {
+            left: 0;
+        }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-}
+        .next {
+            right: 0;
+        }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-    /* Styling untuk tombol */
-.searchBtn {
+        .book img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Adjust slider buttons inside the container */
+        .slider-nav {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .slider-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        /* Styling untuk tombol */
+    #searchBtn {
         width: 100%;
-        padding: 20px;
+        padding: 5px;
         background: linear-gradient(to right,#e934e0, #7424db);
         border: none;
         border-radius: 10px;
@@ -98,17 +109,17 @@ header {
         margin-bottom: 20px;
     }
 
-    .searchBtn:hover {
+    #searchBtn:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
     }
 
-    .searchBtn:active {
+    #searchBtn:active {
         transform: translateY(0);
     }
 
     /* Styling untuk hasil pencarian */
-    .searchResults {
+    #searchResults {
         margin-top: 30px;
         background: white;
         border-radius: 10px;
@@ -220,7 +231,6 @@ header {
     .book-item:nth-child(3) { animation-delay: 0.3s; }
     .book-item:nth-child(4) { animation-delay: 0.4s; }
     .book-item:nth-child(5) { animation-delay: 0.5s; }
-    }
 </style>
 <body>
     <header>
