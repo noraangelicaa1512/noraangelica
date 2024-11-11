@@ -83,6 +83,143 @@ header {
     text-decoration: none;
     cursor: pointer;
 }
+    /* Styling untuk tombol */
+    #searchBtn {
+        width: 100%;
+        padding: 5px;
+        background: linear-gradient(to right,#e934e0, #7424db);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    #searchBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    #searchBtn:active {
+        transform: translateY(0);
+    }
+
+    /* Styling untuk hasil pencarian */
+    #searchResults {
+        margin-top: 30px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .book-item {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s ease;
+    }
+
+    .book-item:hover {
+        background-color: #f8f9fa;
+        transform: translateX(10px);
+    }
+
+    .book-item:last-child {
+        border-bottom: none;
+    }
+
+    .book-item h4 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .book-item p {
+        color: #7f8c8d;
+        margin: 5px 0;
+        font-size: 0.9em;
+    }
+
+    /* Styling untuk datepicker */
+    .ui-datepicker {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+
+    .ui-datepicker-header {
+        background: linear-gradient(to right, #3498db, #2ecc71);
+        color: white;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .ui-datepicker-calendar th {
+        color: #2c3e50;
+        padding: 7px;
+    }
+
+    .ui-datepicker-calendar td {
+        padding: 5px;
+    }
+
+    .ui-datepicker-calendar .ui-state-default {
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        text-decoration: none;
+        color: #2c3e50;
+    }
+
+    .ui-datepicker-calendar .ui-state-active,
+    .ui-datepicker-calendar .ui-state-hover {
+        background: #3498db;
+        color: white;
+    }
+    /* Responsive design */
+    @media (max-width: 768px) {
+            .custom-column {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-control, #searchBtn {
+                padding: 12px;
+            }
+        }
+
+    /* Animasi untuk hasil pencarian */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .book-item {
+        animation: fadeIn 0.5s ease forwards;
+        opacity: 0;
+    }
+
+    .book-item:nth-child(1) { animation-delay: 0.1s; }
+    .book-item:nth-child(2) { animation-delay: 0.2s; }
+    .book-item:nth-child(3) { animation-delay: 0.3s; }
+    .book-item:nth-child(4) { animation-delay: 0.4s; }
+    .book-item:nth-child(5) { animation-delay: 0.5s; }
 </style>
 <body>
     <header>
