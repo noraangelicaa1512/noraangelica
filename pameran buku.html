@@ -89,7 +89,15 @@ header {
         <h1>Pameran Buku 2024</h1>
         <p>Selamat datang di pameran buku virtual!</p>
     </header>
-
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-column">
+          <h1>Pencarian Buku</h1>
+          <div class="form-group">
+            <input type="text" id="bookSearch" class="form-control" placeholder="Masukkan judul buku">
+          </div>
+          <button id="searchBtn" class="btn btn-primary">Cari</button>
+          <div id="searchResults" class="mt-4"></div>
+        </div>
     <main>
         <section class="book-gallery">
             <!-- Setiap buku ditampilkan dalam sebuah div dengan kelas "book-item" -->
