@@ -121,6 +121,24 @@ header {
             <p id="modalDescription">Deskripsi buku...</p>
         </div>
     </div>
+       <script>
+        // Menggunakan jQuery dan Plugin DataTables
+        $(document).ready(function() {
+            // Inisialisasi plugin DataTables pada tabel daftar buku
+            $('#daftarBuku').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Indonesian.json"
+                }
+            });
+
+            // Menambahkan event klik pada baris tabel
+            $('#daftarBuku tbody').on('click', 'tr', function () {
+                var data = $('#daftarBuku').DataTable().row(this).data();
+                alert("Anda memilih buku berjudul: " + data[1]);
+            });
+        });
+    </script>
+ 
 <script>
 // Fungsi untuk membuka modal dan menampilkan detail buku
 function openModal(bookId) {
