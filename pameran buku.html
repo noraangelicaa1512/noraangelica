@@ -6,8 +6,8 @@
     <title>Perpustakaan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
-	body {
-            background-color:  #F5F5F5; /RosyBrown/
+         body {
+            background-color : #fcf8f1;
             background-size: cover;
             color: black;
         }
@@ -87,8 +87,8 @@
         /* Styling untuk tombol */
     #searchBtn {
         width: 100%;
-        padding: 15px;
-        background: linear-gradient(to right,#e934e0, #7424db);
+        padding: 5px;
+        background: linear-gradient(to right, #9234e9, #c0db24);
         border: none;
         border-radius: 10px;
         color: white;
@@ -222,11 +222,11 @@
     .book-item:nth-child(4) { animation-delay: 0.4s; }
     .book-item:nth-child(5) { animation-delay: 0.5s; }
 </style>
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">UI</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -262,37 +262,39 @@
         </div>
         <h1>Selamat Datang di Perpustakaan</h1>
         <h2>Pameran Buku</h2>
-        <p>Klik tombol di bawah untuk melihat lebih lanjut tentang buku kami!</p>
-            <!-- Setiap buku ditampilkan dalam sebuah div dengan kelas "book-item" -->
-            <div class="book-item" onclick="openModal('book1')">
-                <img src="https://cdn.gramedia.com/uploads/items/9786020332956_Bumi-New-Cover.jpg" alt="Book 1">
-                <h2>BUMI</h2>
-                <p>Penulis: Tere liye</p>
+    
+        <main class="container mt-4">
+            <h1 class="text-center"><u>Perpustakaan Universitas Lampung</u></h1>
+            <h2 class="text-center">Pameran Buku</h2>
+        
+            <div class="slider-container">
+                <div class="slider" id="bookSlider">
+                    <div class="book">
+                        <img src="https://cdn.gramedia.com/uploads/items/9786020332956_Bumi-New-Cover.jpg">
+                        <h3>Buku 1</h3>
+                        <p>Judul: BUMI</p>
+                        <p>Pengarang: Tere Liye</p>
+                    </div>
+                    <div class="book">
+                        <img src="https://www.gramedia.com/blog/content/images/2021/08/9786020638560_Sang_Keris_C_1_4-1.jpg" alt="Sang Keris">
+                        <h3>Buku 2</h3>
+                        <p>Judul: Sang Keris</p>
+                        <p>Pengarang:  Panji Sukma</p>
+                    </div>
+                    <div class="book">
+                        <img src="https://lh4.googleusercontent.com/proxy/CK6aFQuIRwNkvqdp10lA622GrXrhxmbKDCfllGceMQrJFBZeawkP_GVz58LG8rV9BbL6qCb3DrW966TTVJdtgXAfKQtPVo6ZgvcpKUCwN2rHg1M" alt="Book 2">
+                        <h3>Buku 3</h3>
+                        <p>Judul: Antasari</p>
+                        <p>Pengarang: Heltus Sjamsuddin</p>
+                    </div>
+                    
+                </div>
+                <!-- Tombol geser kiri/kanan -->
+                <button class="prev" onclick="slideLeft()">&#10094;</button>
+                <button class="next" onclick="slideRight()">&#10095;</button>
             </div>
-            <div class="book-item" onclick="openModal('book2')">
-                <img src="https://www.gramedia.com/blog/content/images/2021/08/9786020638560_Sang_Keris_C_1_4-1.jpg" alt="Book 2">
-                <h2>Sang Keris</h2>
-                <p>Penulis: Panji Sukma</p>
-            </div>
-            <div class="book-item" onclick="openModal('book2')">
-                <img src="https://lh4.googleusercontent.com/proxy/CK6aFQuIRwNkvqdp10lA622GrXrhxmbKDCfllGceMQrJFBZeawkP_GVz58LG8rV9BbL6qCb3DrW966TTVJdtgXAfKQtPVo6ZgvcpKUCwN2rHg1M" alt="Book 2">
-                <h2>Antasari</h2>
-                <p>Penulis: Heltus Sjamsuddin</p>
-            </div>
-            <!-- Tambahkan buku lainnya di sini -->
-        </section>
-    </main>
-
-    <!-- Modal untuk menampilkan detail buku -->
-    <div id="bookModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Judul Buku</h2>
-            <p id="modalAuthor">Penulis: Nama Penulis</p>
-            <p id="modalDescription">Deskripsi buku...</p>
-        </div>
-    </div>
-        <footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="sec-0dd5">
+        </main>
+<footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="sec-0dd5">
 
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -303,7 +305,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-       $(document).ready(function() {
+  $(document).ready(function() {
     $("#changeTextBtn").on("click", function() {
       $("#jqueryText").text("Teks telah diubah menggunakan jQuery!");
       console.log("Button clicked!");
@@ -315,8 +317,11 @@
         { title: "Sang Keris", author: " Panji Sukma", year: 2020, sinopsis : "Kejayaan hanya bisa diraih dengan ilmu, perang, dan laku batin. Sedangkan kematian adalah jalan yang harus ditempuh dengan terhormat. Matilah dengan keris tertancap di dadamu sebagai seorang ksatria, bukan mati dengan tombak tertancap di punggungmu karena lari dari medan laga. Peradaban telah banyak berkisah tentang kekuasaan. Kekuasaan melahirkan para manusia pinilih, dan manusia pinilih selalu menggenggam sebuah pusaka. ." },
         { title: "Antasari", author: "Helius Sjamsuddin", year:  2010, sinopsis : "Dalam kehidupan sehari-hari, kita dapat mencari tahu tentang sejarah apa saja yang dapat kita lihat. Sedetik waktu kita yang terlewatkan, sudah menjadi sejarah kita dikehidupan kelak. Apalagi setahun, dua tahun, bahkan ratusan tahun yang lalu menjadi tolok ukur yang kita ketahui. Membicarakan sejarah dapat berarti membicarakan “kesan-kesan” yang dapat dipetik dari sebuah cerita tentang apa pun, khususnya tentang seorang tokoh pahlawan.."},
  ];
-// Fungsi pencarian
-$("#searchBtn").click(function() {
+
+
+
+    // Fungsi pencarian
+    $("#searchBtn").click(function() {
         const searchTerm = $("#bookSearch").val().toLowerCase();
         
         const results = books.filter(book => 
@@ -356,17 +361,17 @@ $("#searchBtn").click(function() {
             const maxScroll = slider.scrollWidth - slider.clientWidth;
             if (scrollAmount < maxScroll) {
                 scrollAmount += slider.querySelector('.book').clientWidth + 20;
-                slider.style.transform = translateX(-${scrollAmount}px);
+                slider.style.transform = `translateX(-${scrollAmount}px)`;
             }
         }
 
         function slideLeft() {
             if (scrollAmount > 0) {
                 scrollAmount -= slider.querySelector('.book').clientWidth + 20;
-                slider.style.transform = translateX(-${scrollAmount}px);
+                slider.style.transform = `translateX(-${scrollAmount}px)`;
             }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html
+</html>
