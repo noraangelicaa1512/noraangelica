@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Dua Bilangan</title>
+</head>
+<body>
+    <h1>Kalkulator Dua Bilangan</h1>
+    <form action="hasil.php" method="post">
+        <label>Bilangan Pertama: <input type="number" name="bil1" required></label><br>
+        <label>Bilangan Kedua: <input type="number" name="bil2" required></label><br>
+        <label>Operasi:
+            <select name="operasi" required>
+                <option value="tambah">Tambah</option>
+                <option value="kurang">Kurang</option>
+                <option value="kali">Kali</option>
+                <option value="bagi">Bagi</option>
+            </select>
+        </label><br>
+        <button type="submit">Hitung</button>
+    </form>
+</body>
+</html>
